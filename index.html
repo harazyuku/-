@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カルマ追加サイト</title>
+</head>
+<body>
+  
+<h2>お前の業（カルマ）を審判せよ</h2>
+
+<input type="text" placeholder="どんな行いをした？" id="text-input">
+<input type="button" value="罪" id="add-btn">
+
+<script>
+  const addBtn = document.getElementById("add-btn");
+  const textInput = document.getElementById("text-input");
+
+  addBtn.addEventListener("click", () => {
+    const text = textInput.value;
+    const newTask = document.createElement("div");
+    newTask.textContent = text;
+
+    const delBtn = document.createElement("button");
+    delBtn.textContent = "浄化";
+    delBtn.addEventListener("click", () => {
+      newTask.remove();
+   });
+  
+      newTask.appendChild(delBtn);
+      document.body.appendChild(newTask);
+      textInput.value = "";
+ });
+
+
+</script>
+</body>
+</html>
